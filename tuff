@@ -1,0 +1,48 @@
+local plr = game.Players.LocalPlayer
+local mouse = plr:GetMouse()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+local pings = {}
+local function GetPing()
+    local sum = 0
+    for i = 1, #pings do
+        sum = sum + pings[i]
+    end
+    return sum / #pings
+end
+
+local function isMoving()
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+    if humanoid then
+        return humanoid.MoveDirection.Magnitude > 0
+    end
+    return false
+end
+print("Loaded!")
+
+mouse.KeyDown:Connect(function(key)
+    if key == "e" then
+        local ping = GetPing() / 1000 
+        local standingDelay = 0.565 - ping
+        local movingDelay = 0.675 - ping
+        if isMoving() then
+            wait(movingDelay)
+            local args = {[1] = false, [2] = false}
+            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("server"):WaitForChild("shoot"):FireServer(unpack(args))
+        else
+            wait(standingDelay)
+            local args = {[1] = false, [2] = false}
+            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("server"):WaitForChild("shoot"):FireServer(unpack(args))
+        end
+    end
+end)
+
+while true do
+    table.insert(pings, game:GetService("Stats").PerformanceStats.Ping:GetValue())
+    if #pings > 10 then
+        table.remove(pings, 1)
+    end
+    wait(1)
+end
+print("Loaded!")
