@@ -24,8 +24,8 @@ print("Loaded!")
 mouse.KeyDown:Connect(function(key)
     if key == "e" then
         local ping = GetPing() / 1000 
-        local standingDelay = 0.82 - ^ 1
-        local movingDelay = 1 - ^ 1 
+        local standingDelay = 0.82 - ^ 1.1
+        local movingDelay = 1 - ^ 1.1 
         if isMoving() then
             wait(movingDelay)
 
