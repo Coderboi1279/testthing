@@ -24,8 +24,8 @@ print("Loaded!")
 mouse.KeyDown:Connect(function(key)
     if key == "e" then
         local ping = GetPing() / 1000 
-        local standingDelay = 0.81 - ping ^ 0.8
-        local movingDelay = 1 - ping ^ 0.8
+        local standingDelay = 0.96 - ping ^ 1.3
+        local movingDelay = 1.15 - ping ^ 1.3
         if isMoving() then
             wait(movingDelay)
 
@@ -34,7 +34,6 @@ local ohString2 = "Shooting"
 local ohString3 = "Standing Shot"
 
 game:GetService("Players").LocalPlayer.Backpack.PlayerEvents.Shooting:FireServer(ohBoolean1, ohString2, ohString3)
-print(movingDelay)
         else
             wait(standingDelay)
          
@@ -44,7 +43,6 @@ local ohString2 = "Shooting"
 local ohString3 = "Standing Shot"
 
 game:GetService("Players").LocalPlayer.Backpack.PlayerEvents.Shooting:FireServer(ohBoolean1, ohString2, ohString3)
-print(standingDelay)
         end
     end
 end)
