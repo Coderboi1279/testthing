@@ -1,4 +1,4 @@
-local plr = game.Players.LocalPlayer
+local plr = game:GetService("Players").LocalPlayer
 local mouse = plr:GetMouse()
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
@@ -24,8 +24,8 @@ print("Loaded!")
 mouse.KeyDown:Connect(function(key)
     if key == "e" then
         local ping = GetPing() / 1000 
-        local standingDelay = 0.82 - ^ 1.1
-        local movingDelay = 1 - ^ 1.1 
+        local standingDelay = 0.82 - ^ 1
+        local movingDelay = 1 - ^ 1
         if isMoving() then
             wait(movingDelay)
 
