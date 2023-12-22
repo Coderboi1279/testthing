@@ -48,7 +48,7 @@ game:GetService("Players").LocalPlayer.Backpack.PlayerEvents.Shooting:FireServer
 end)
 
 task.spawn(function()
-    while task.wait(1) do
+    while task.wait() do
       table.insert(pings, game:GetService("Stats").PerformanceStats.Ping:GetValue())
       if #pings > 10 then
           table.remove(pings, 1)
