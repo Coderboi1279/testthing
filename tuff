@@ -34,6 +34,7 @@ local ohString2 = "Shooting"
 local ohString3 = "Standing Shot"
 
 game:GetService("Players").LocalPlayer.Backpack.PlayerEvents.Shooting:FireServer(ohBoolean1, ohString2, ohString3)
+print(movingDelay)
         else
             wait(standingDelay)
          
@@ -43,6 +44,7 @@ local ohString2 = "Shooting"
 local ohString3 = "Standing Shot"
 
 game:GetService("Players").LocalPlayer.Backpack.PlayerEvents.Shooting:FireServer(ohBoolean1, ohString2, ohString3)
+print(standingDelay)
         end
     end
 end)
