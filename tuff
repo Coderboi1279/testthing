@@ -28,12 +28,21 @@ mouse.KeyDown:Connect(function(key)
         local movingDelay = 0.675 - ping
         if isMoving() then
             wait(movingDelay)
-            local args = {[1] = false, [2] = false}
-            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("server"):WaitForChild("shoot"):FireServer(unpack(args))
+
+local ohBoolean1 = false
+local ohString2 = "Shooting"
+local ohString3 = "Standing Shot"
+
+game:GetService("Players").LocalPlayer.Backpack.PlayerEvents.Shooting:FireServer(ohBoolean1, ohString2, ohString3)
         else
             wait(standingDelay)
-            local args = {[1] = false, [2] = false}
-            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("server"):WaitForChild("shoot"):FireServer(unpack(args))
+         
+
+local ohBoolean1 = false
+local ohString2 = "Shooting"
+local ohString3 = "Standing Shot"
+
+game:GetService("Players").LocalPlayer.Backpack.PlayerEvents.Shooting:FireServer(ohBoolean1, ohString2, ohString3)
         end
     end
 end)
